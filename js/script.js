@@ -38,3 +38,76 @@ console.log(num1+num2);
 var suma = num1 + num2;
 
 console.log(suma);
+
+var nota = 9;
+console.log("Nota = " + nota);
+
+if (nota >= 7){
+    console.log("El Alumno esta APROBADO");
+}
+
+//--------------------------------------
+
+var nota = 5;
+console.log("Nota = " + nota);
+
+if (nota >= 7){
+    console.log("El Alumno esta APROBADO");
+}
+else {
+    console.log("El Alumno esta DESAPROBADO");
+}
+//---------------------------------------
+
+var nota = 1;
+console.log("El resultado del examen es: ");
+switch(nota){
+    case 10:
+    calificacion="aprobado con la maxima nota";
+    break
+    case 9:
+    case 8:
+    calificacion="aprobo bien";
+    break
+    case 7:
+    case 6:
+    case 5:
+    calificacion="pasaste arañando";
+    break
+    case 4:
+    case 3:
+    case 2:
+    case 1:
+    calificacion="siga la flecha y vualva a estudiar";
+    break
+    default:
+    calificacion="esto no es una nota"
+    break
+}
+console.log("Usted: " + calificacion);
+//---------------------------------------------------
+/*
+var altura=0;
+var edad=0;
+altura=parseFloat(prompt("ingrese la altura: "));
+edad=parseInt(prompt("ingrese su edad: "));
+    if(altura > 1.5 && edad > 15){
+        console.log("cumple con los parametros");
+    }
+    else{
+        console.log("no puede ingresar, a casa papi");
+    }*/
+//-----------------------------------------------
+
+var valor=0;
+while(valor<10){
+    console.log("Se repite del 0 hasta el 9, mira =", valor);
+    valor++;
+}
+//-----------------------------------------------
+
+for(var i=1; i<=15; i++){
+    console.log("imprimimos i = ", i);
+}
+//------------------------------------------------
+
