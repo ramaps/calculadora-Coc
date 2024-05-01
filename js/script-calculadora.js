@@ -1,6 +1,7 @@
 var pantalla = document.querySelector(".pantalla");
 var botones = document.querySelectorAll(".boton"); //querySelectorAll Sirve para crear un Array con los botones
 var num1 = '';
+var bandera = false;
 
 botones.forEach(btn => {
     btn.addEventListener("click", () =>{
@@ -18,11 +19,15 @@ botones.forEach(btn => {
             case '9':
             case '0':
 
-                if((pantalla.textContent!='0') && (pantalla.textContent.length<=9)){
+                if((pantalla.textContent!='0') && (pantalla.textContent.length<=9) && (!bandera)){
                     pantalla.textContent += apretarboton;
                 }
-                else if(pantalla.textContent == '0') {
+                else if(pantalla.textContent == '0' && (!bandera)) {
                     pantalla.textContent = apretarboton;
+                }
+                else if (bandera){
+                    pantalla.textContent = apretarboton;
+                    bandera = false;
                 }
 
                 break;
@@ -58,12 +63,19 @@ botones.forEach(btn => {
                 pantalla.textContent = 0;
                 break;
 
-            case '=':
-                num1 += pantalla.textContent;
-                console.log(eval(num1));
-                pantalla.textContent = eval (num1);
-                num1='';
-                break;
+                case '=':
+                    num1 += pantalla.textContent;
+                    let resultado = eval(num1); // Obtener el resultado
+                    if (resultado.toString().length > 10) {
+                        resultado = resultado.toExponential(5); // Convertir a notación científica con 5 dígitos decimales
+                    } else {
+                        resultado = resultado.toString(); // Convertir a cadena si no excede los 10 caracteres
+                    }
+                    console.log(resultado); // Mostrar el resultado en la consola
+                    pantalla.textContent = resultado; // Mostrar el resultado en la pantalla
+                    num1 = '';
+                    bandera = true;
+                    break;
         }
         
     })
